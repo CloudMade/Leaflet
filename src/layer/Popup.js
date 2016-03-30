@@ -18,6 +18,7 @@ L.Popup = L.Class.extend({
 		offset: new L.Point(0, 6),
 		autoPanPadding: new L.Point(5, 5),
 		className: '',
+		id: '',
 		zoomAnimation: true
 	},
 
@@ -118,6 +119,10 @@ L.Popup = L.Class.extend({
 			        (this._animated ? 'animated' : 'hide'),
 			container = this._container = L.DomUtil.create('div', containerClass),
 			closeButton;
+
+		if (this.options.id !== '') {
+			container.id = this.options.id;
+		}
 
 		if (this.options.closeButton) {
 			closeButton = this._closeButton =
